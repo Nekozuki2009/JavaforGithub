@@ -24,17 +24,17 @@ public class player {
                     System.out.println("しかし敵にはあたらなかった・・・");
                 }else{
                     int c = new java.util.Random().nextInt(3)+1;
-                    int d = new java.util.Random().nextInt(10)+1;
+                    int d = new java.util.Random().nextInt(20)+10;
                     if(c == 1){
                         System.out.println(this.name + "の攻撃は敵の急所に当たった！！");
-                        int f = new java.util.Random().nextInt(10)+1;
+                        int f = new java.util.Random().nextInt(15)+10;
                         d += f;
                         e.hp -= d / 5;
                         
                     }else{
                         e.hp -= d / 5; 
                     }
-                    System.out.println("敵は" + d + "ダメージ食らった!!");
+                    System.out.println("敵は" + d / 5 + "ダメージ食らった!!");
                 }
             }else{
                 
@@ -50,10 +50,10 @@ public class player {
                     System.out.println("しかし敵にはあたらなかった・・・");
                 }else{
                     int c = new java.util.Random().nextInt(3)+1;
-                    int d = new java.util.Random().nextInt(10)+1;
+                    int d = new java.util.Random().nextInt(20)+10;
                     if(c == 1){
                         System.out.println(this.name + "の攻撃は敵の急所に当たった！！");
-                        int f = new java.util.Random().nextInt(10)+1;
+                        int f = new java.util.Random().nextInt(15)+10;
                         d += f;
                         e.hp -= d;
                         

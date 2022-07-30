@@ -9,8 +9,8 @@ public class enemy {
         this.hp = 0;
     }
     public void Instructions(player p){
-        int a = new java.util.Random().nextInt(4)+1;
-        if(a == 1){
+        int a = new java.util.Random().nextInt(6)+1;
+        if(a == 1||a == 5||a == 6){
             attack(p);
         }else if(a == 2){
             sit();
@@ -37,17 +37,17 @@ public class enemy {
                     System.out.println("しかし" + p.name + "にはあたらなかった！！");
                 }else{
                     int c = new java.util.Random().nextInt(5)+1;
-                    int d = new java.util.Random().nextInt(30)+1;
+                    int d = new java.util.Random().nextInt(30)+10;
                     if(c == 1){
                         System.out.println("敵の攻撃は" + p.name + "の急所に当たった・・・");
-                        int e = new java.util.Random().nextInt(20)+1;
+                        int e = new java.util.Random().nextInt(20)+10;
                         d += e;
                         p.hp -= d / 5;
                         
                     }else{
                         p.hp -= d / 5; 
                     }
-                    System.out.println(p.name + "は" + d + "ダメージ食らった・・・");
+                    System.out.println(p.name + "は" + d / 5 + "ダメージ食らった・・・");
                 }
             }else{
                 
@@ -63,10 +63,10 @@ public class enemy {
                     System.out.println("しかし" + p.name + "にはあたらなかった！！");
                 }else{
                     int c = new java.util.Random().nextInt(3)+1;
-                    int d = new java.util.Random().nextInt(10)+1;
+                    int d = new java.util.Random().nextInt(30)+10;
                     if(c == 1){
                         System.out.println("敵の攻撃は" + p.name + "の急所に当たった・・・");
-                        int e = new java.util.Random().nextInt(10)+1;
+                        int e = new java.util.Random().nextInt(20)+10;
                         d += e;
                         p.hp -= d;
                         

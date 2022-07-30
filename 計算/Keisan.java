@@ -1,3 +1,4 @@
+package 計算;
 public class Keisan {
     static double the_number_of_questions_n;
     static double right;
