@@ -3,5 +3,5 @@ tasks:
       echo 'TODO: build project'
     command: |
       echo 'TODO: start app'
-    image:
-      file: .gitpod.Dockerfile
+image:
+  file: .gitpod.Dockerfile
