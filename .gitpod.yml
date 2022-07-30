@@ -14,5 +14,5 @@ jetbrains:
   intellij:
     plugins:
       - com.intellij.lang.jsgraphql
-  prebuilds:
+    prebuilds:
       version: stable
