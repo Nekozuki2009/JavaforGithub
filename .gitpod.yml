@@ -1,0 +1,18 @@
+tasks:
+  - init: |
+      echo 'TODO: build project'
+    command: |
+      echo 'TODO: start app'
+image:
+  file: .gitpod.Dockerfile
+
+vscode:
+  extensions:
+    - vscjava.vscode-java-pack
+
+jetbrains:
+  intellij:
+    plugins:
+      - com.intellij.lang.jsgraphql
+    prebuilds:
+      version: stable
