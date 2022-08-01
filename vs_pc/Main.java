@@ -1,8 +1,7 @@
 package vs_pc;
-
 public class Main {
-    static int p_hp_max = 100;
-    static int e_hp_max = 100;
+    static int p_hp_max = 250;
+    static int e_hp_max = 3000;
     static int turn;
     static int p_sleepturn = 0;
     static int e_sleepturn = 0;
@@ -83,8 +82,14 @@ public class Main {
 	        System.out.println(p.name + "は倒れた・・・");
 	        last();
 	    }
+	    if(e.hp <= 0){
+	        System.out.println("敵は倒れた！！！");
+	        System.out.println("ゲームクリア！！");
+	        last();
+	    }
 	    System.out.println(p.name + "のhpは " + p.hp);
-	    System.out.println("スコア " + e.hp * -1);
+	    System.out.println("現在敵のhpは " + e.hp);
+	    System.out.println("現在は" + turn + "ターン目");
 	    p_Instructions();
         if(e_sleepturn == 5 || e_sleepturn == 0){
             if(e_sleepturn == 5){
@@ -92,8 +97,8 @@ public class Main {
                 e.sleep = false;
                 e_sleepturn = 0;
             }
-            int a = new java.util.Random().nextInt(3)+1;
-		    if(a == 3){
+            int a = new java.util.Random().nextInt(2)+1;
+		    if(a == 1){
 		            e.Instructions(p);
 		    }
         }
@@ -110,13 +115,13 @@ public class Main {
             String p_Instructions = new java.util.Scanner(System.in).nextLine();
             if(p_Instructions.equals("stop")){
                 last();
-            }else if(p_Instructions.equals("attack")){
+            }else if(p_Instructions.equals("a")){
             p.attack(e);
-            }else if(p_Instructions.equals("sit")){
+            }else if(p_Instructions.equals("si")){
                 p.sit();
-            }else if(p_Instructions.equals("down")){
+            }else if(p_Instructions.equals("d")){
                 p.down();
-            }else if(p_Instructions.equals("sleep")){
+            }else if(p_Instructions.equals("sl")){
                 p.sleep();
             }else{
                 System.out.println("条件に合いませんでした。もう一度入力してください");
@@ -129,19 +134,23 @@ public class Main {
     }
 	public static void last(){
 	    System.out.println("あなたの結果は・・・");
-	    System.out.println(e.hp * -1 + "(1ターンあたり" + e.hp * -1 / turn + ")");
+	    int e_d = 3000 - e.hp;
+	    System.out.println(e_d + "(1ターンあたり" + e_d / turn + ")");
+	    System.out.println(p.name + "のhpは" + p.hp);
 	    System.out.println("でした！！");
 	    turn = 0;
         p_sleepturn = 0;
         e_sleepturn = 0;
-	    p.hp = 100;
-	    e.hp = 0;
+	    p.hp = 250;
+	    e.hp = 3000;
 	    p.sit = false;
         p.down = false;
         p.sleep = false;
         e.sit = false;
         e.down = false;
         e.sleep = false;
+        p_hp_max = 250;
+        e_hp_max = 3000;
 	    sub();
 	}
 }

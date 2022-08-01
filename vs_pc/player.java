@@ -1,5 +1,4 @@
 package vs_pc;
-
 public class player {
     static String name;
     static int hp;
@@ -7,7 +6,7 @@ public class player {
     static boolean down = false;
     static boolean sleep = false;
     public player(){
-        this.hp = 100;
+        this.hp = 250;
     }
     public void attack(enemy e){
         System.out.println(this.name + "の攻撃！！");
@@ -24,10 +23,10 @@ public class player {
                     System.out.println("しかし敵にはあたらなかった・・・");
                 }else{
                     int c = new java.util.Random().nextInt(3)+1;
-                    int d = new java.util.Random().nextInt(20)+10;
+                    int d = new java.util.Random().nextInt(20)+90;
                     if(c == 1){
                         System.out.println(this.name + "の攻撃は敵の急所に当たった！！");
-                        int f = new java.util.Random().nextInt(15)+10;
+                        int f = new java.util.Random().nextInt(30)+50;
                         d += f;
                         e.hp -= d / 5;
                         
@@ -38,7 +37,7 @@ public class player {
                 }
             }else{
                 
-                int g = new java.util.Random().nextInt(10)+1;
+                int g = new java.util.Random().nextInt(10)+10;
                 System.out.println("しかし" + this.name + "はバランスを崩して倒れて" + g + "ダメージ食らった・・・");
                 this.hp -= g;
             }
@@ -50,10 +49,10 @@ public class player {
                     System.out.println("しかし敵にはあたらなかった・・・");
                 }else{
                     int c = new java.util.Random().nextInt(3)+1;
-                    int d = new java.util.Random().nextInt(20)+10;
+                    int d = new java.util.Random().nextInt(20)+90;
                     if(c == 1){
                         System.out.println(this.name + "の攻撃は敵の急所に当たった！！");
-                        int f = new java.util.Random().nextInt(15)+10;
+                        int f = new java.util.Random().nextInt(30)+50;
                         d += f;
                         e.hp -= d;
                         
@@ -64,7 +63,7 @@ public class player {
                 }
             }else{
                 
-                int g = new java.util.Random().nextInt(10)+1;
+                int g = new java.util.Random().nextInt(10)+10;
                 System.out.println("しかし" + this.name + "はバランスを崩して倒れて" + g + "ダメージ食らった・・・");
                 this.hp -= g;
             }
