@@ -2,7 +2,7 @@ package vs_pc;
 public class Main {
     static int p_hp_max = 250;
     static int e_hp_max = 3000;
-    static int turn = 1;
+    static int turn;
     static int p_sleepturn = 0;
     static int e_sleepturn = 0;
     static player p = new player();
@@ -78,13 +78,14 @@ public class Main {
             e.hp += 20;
             e_sleepturn ++;
         }
-	    if(p.hp <= 0){
-	        System.out.println(p.name + "は倒れた・・・");
-	        last();
-	    }
+	    
 	    if(e.hp <= 0){
 	        System.out.println("敵は倒れた！！！");
 	        System.out.println("ゲームクリア！！");
+	        last();
+	    }
+	    if(p.hp <= 0){
+	        System.out.println(p.name + "は倒れた・・・");
 	        last();
 	    }
 	    System.out.println(p.name + "のhpは " + p.hp);
@@ -112,7 +113,7 @@ public class Main {
                 p_sleepturn = 0;
                 p.sleep = false;
             }
-            String p_Instructions = new java.util.Scanner(System.in).nextLine();
+             String p_Instructions = new java.util.Scanner(System.in).nextLine();
             if(p_Instructions.equals("stop")){
                 last();
             }else if(p_Instructions.equals("a")){
@@ -123,6 +124,8 @@ public class Main {
                 p.down();
             }else if(p_Instructions.equals("sl")){
                 p.sleep();
+            }else if(p_Instructions.equals("sp")){
+                p.sp(e,turn);
             }else{
                 System.out.println("条件に合いませんでした。もう一度入力してください");
                 p_Instructions();
@@ -138,7 +141,7 @@ public class Main {
 	    System.out.println(e_d + "(1ターンあたり" + e_d / turn + ")");
 	    System.out.println(p.name + "のhpは" + p.hp);
 	    System.out.println("でした！！");
-	    turn = 1;
+	    turn = 0;
         p_sleepturn = 0;
         e_sleepturn = 0;
 	    p.hp = 250;
@@ -151,6 +154,7 @@ public class Main {
         e.sleep = false;
         p_hp_max = 250;
         e_hp_max = 3000;
+        p.sp = false;
 	    sub();
 	}
 }
