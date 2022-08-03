@@ -2,7 +2,7 @@ package vs_pc;
 public class Main {
     static int p_hp_max = 250;
     static int e_hp_max = 3000;
-    static int turn;
+    static int turn = 1;
     static int p_sleepturn = 0;
     static int e_sleepturn = 0;
     static player p = new player();
@@ -141,7 +141,7 @@ public class Main {
 	    System.out.println(e_d + "(1ターンあたり" + e_d / turn + ")");
 	    System.out.println(p.name + "のhpは" + p.hp);
 	    System.out.println("でした！！");
-	    turn = 0;
+	    turn = 1;
         p_sleepturn = 0;
         e_sleepturn = 0;
 	    p.hp = 250;
