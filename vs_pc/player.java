@@ -5,6 +5,7 @@ public class player {
     static boolean sit = false;
     static boolean down = false;
     static boolean sleep = false;
+    static boolean sp = false;
     public player(){
         this.hp = 250;
     }
@@ -113,6 +114,48 @@ public class player {
                 this.sleep = true;
                 
             }
+        }
+    }
+public void sp(enemy e,int turn){
+        System.out.println(this.name + "のsp attack！！");
+        if(this.sp == true){
+            System.out.println("しかしもうsp attaackを撃っていた・・・");
+        }else if(this.sleep == true){
+            System.out.println("しかし" + this.name + "は寝ていた・・・");
+        }else if(this.down == true){
+            System.out.println("しかし" + this.name + "は寝転がっていた・・・");
+        }else if(this.sit == true){
+            System.out.println("しかし" + this.name + "は座っていて攻撃が弱くなった・・・");
+          
+                    int c = new java.util.Random().nextInt(3)+1;
+                    int d = new java.util.Random().nextInt(1000)+100 * turn;
+                    if(c == 1){
+                        System.out.println(this.name + "の攻撃は敵の急所に当たった！！");
+                        int f = new java.util.Random().nextInt(1000)+1;
+                        d *= f;
+                        e.hp -= d / 5;
+                        
+                    }else{
+                        e.hp -= d / 5; 
+                    }
+                    System.out.println("敵は" + d / 5 + "ダメージ食らった!!");
+                    this.sp = true;
+                
+
+        }else{
+                    int c = new java.util.Random().nextInt(3)+1;
+                    int d = new java.util.Random().nextInt(1000)+100 * turn;
+                    if(c == 1){
+                        System.out.println(this.name + "の攻撃は敵の急所に当たった！！");
+                        int f = new java.util.Random().nextInt(1000)+1;
+                        d *= f;
+                        e.hp -= d;
+                        
+                    }else{
+                        e.hp -= d; 
+                    }
+                    System.out.println("敵は" + d + "ダメージ食らった!!");
+                    this.sp = true;
         }
     }
 }
