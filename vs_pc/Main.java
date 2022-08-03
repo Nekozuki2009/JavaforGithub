@@ -90,7 +90,8 @@ public class Main {
 	    }
 	    System.out.println(p.name + "のhpは " + p.hp);
 	    System.out.println("現在敵のhpは " + e.hp);
-	    System.out.println("現在は" + turn + 1 + "ターン目");
+        int turn_ = turn + 1;
+	    System.out.println("現在は" + turn_ + "ターン目");
 	    p_Instructions();
         if(e_sleepturn == 5 || e_sleepturn == 0){
             if(e_sleepturn == 5){
