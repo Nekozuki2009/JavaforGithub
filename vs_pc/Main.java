@@ -2,7 +2,7 @@ package vs_pc;
 public class Main {
     static int p_hp_max = 250;
     static int e_hp_max = 3000;
-    static int turn = 1;
+    static int turn = 0;
     static int p_sleepturn = 0;
     static int e_sleepturn = 0;
     static player p = new player();
@@ -90,7 +90,7 @@ public class Main {
 	    }
 	    System.out.println(p.name + "のhpは " + p.hp);
 	    System.out.println("現在敵のhpは " + e.hp);
-	    System.out.println("現在は" + turn + "ターン目");
+	    System.out.println("現在は" + turn + 1 + "ターン目");
 	    p_Instructions();
         if(e_sleepturn == 5 || e_sleepturn == 0){
             if(e_sleepturn == 5){
@@ -140,8 +140,9 @@ public class Main {
 	    int e_d = 3000 - e.hp;
 	    System.out.println(e_d + "(1ターンあたり" + e_d / turn + ")");
 	    System.out.println(p.name + "のhpは" + p.hp);
+        System.out.println(turn + "ターン");
 	    System.out.println("でした！！");
-	    turn = 1;
+	    turn = 0;
         p_sleepturn = 0;
         e_sleepturn = 0;
 	    p.hp = 250;
