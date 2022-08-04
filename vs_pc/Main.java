@@ -92,7 +92,10 @@ public class Main {
 	    System.out.println("現在敵のhpは " + e.hp);
         
 	    System.out.println("現在は" + turn + "ターン目");
+	    p.de = false;
+	    
 	    p_Instructions();
+	    e.de = false;
         if(e_sleepturn == 5 || e_sleepturn == 0){
             if(e_sleepturn == 5){
                 System.out.println("敵は目を覚ました");
@@ -122,12 +125,14 @@ public class Main {
             p.attack(e);
             }else if(p_Instructions.equals("si")){
                 p.sit();
-            }else if(p_Instructions.equals("d")){
+            }else if(p_Instructions.equals("do")){
                 p.down();
             }else if(p_Instructions.equals("sl")){
                 p.sleep();
             }else if(p_Instructions.equals("sp")){
                 p.sp(e,turn);
+            }else if(p_Instructions.equals("de")){
+                p.de();
             }else{
                 System.out.println("条件に合いませんでした。もう一度入力してください");
                 p_Instructions();
@@ -159,6 +164,8 @@ public class Main {
         p_hp_max = 250;
         e_hp_max = 3000;
         p.sp = false;
+        e.de = false;
+        p.de = false;
 	    sub();
 	}
 }
