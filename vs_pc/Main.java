@@ -56,7 +56,7 @@ public class Main {
             System.out.println("敵は5回復した・・・");
             if(e.hp + 5 > e_hp_max){
                 int hp = e.hp + 5 - e_hp_max;
-                e.hp = p.hp + 5 - hp;
+                e.hp = e.hp + 5 - hp;
             }else{
                 e.hp += 5;
             }
@@ -93,9 +93,7 @@ public class Main {
         
 	    System.out.println("現在は" + turn + "ターン目");
 	    p.de = false;
-	    
-	    p_Instructions();
-	    e.de = false;
+        e.de = false;
         if(e_sleepturn == 5 || e_sleepturn == 0){
             if(e_sleepturn == 5){
                 System.out.println("敵は目を覚ました");
@@ -107,6 +105,10 @@ public class Main {
 		            e.Instructions(p);
 		    }
         }
+	    
+	    p_Instructions();
+	    
+        
 		 turn++;   
 	}
 	}

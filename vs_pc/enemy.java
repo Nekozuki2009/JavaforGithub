@@ -9,8 +9,8 @@ public class enemy {
         this.hp = 3000;
     }
     public void Instructions(player p){
-        int a = new java.util.Random().nextInt(8)+1;
-        if(a == 1||a == 2||a == 3||a == 7){
+        int a = new java.util.Random().nextInt(12)+1;
+        if(a == 1||a == 2||a == 3||a == 7||a == 9||a == 10){
             attack(p);
         }else if(a == 4){
             sit();
@@ -18,7 +18,7 @@ public class enemy {
             down();
         }else if(a == 6){
             sleep();
-        }else if(a == 8){
+        }else if(a == 8||a == 12||a == 11){
             de();
         }else{
             Instructions(p);
