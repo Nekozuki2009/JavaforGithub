@@ -8,21 +8,10 @@ public class enemy {
     public enemy(){
         this.hp = 3000;
     }
-    public void Instructions(player p){
+    public int Instructions(){
         int a = new java.util.Random().nextInt(12)+1;
-        if(a == 1||a == 2||a == 3||a == 7||a == 9||a == 10){
-            attack(p);
-        }else if(a == 4){
-            sit();
-        }else if(a == 5){
-            down();
-        }else if(a == 6){
-            sleep();
-        }else if(a == 8||a == 12||a == 11){
-            de();
-        }else{
-            Instructions(p);
-        }
+        return a;
+        
     }
     public void attack(player p){
         System.out.println("敵の攻撃！！");
@@ -67,6 +56,10 @@ public class enemy {
                     this.hp -= f;
                 }
             }else{
+                if(p.de == true){
+                
+                    System.out.println("攻撃の威力が高すぎて" + p.name + "は守り切れなかった・・・");
+                }
                 int a = new java.util.Random().nextInt(5)+1;
                 if(a == 1 || a == 2 || a == 3){
                     int b = new java.util.Random().nextInt(5)+1;

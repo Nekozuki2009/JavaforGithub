@@ -23,6 +23,8 @@ public class Main {
 		game();   
 	}
 	public static void game(){
+        int a = 0;
+        String p_Instructions = "q";
 	while(true){
         if(p.sit == true){
             System.out.println(p.name + "は5回復した！！");
@@ -100,19 +102,12 @@ public class Main {
                 e.sleep = false;
                 e_sleepturn = 0;
             }
-            int a = new java.util.Random().nextInt(2)+1;
-		    if(a == 1){
-		            e.Instructions(p);
+            int b = new java.util.Random().nextInt(2)+1;
+		    if(b == 1){
+		        a = e.Instructions();
 		    }
         }
-	    
-	    p_Instructions();
-	    
         
-		 turn++;   
-	}
-	}
-    public static void p_Instructions(){
         if(p_sleepturn == 5 || p_sleepturn == 0){
             if(p_sleepturn == 5){
                 System.out.println(p.name + "は目を覚ました");
@@ -120,11 +115,40 @@ public class Main {
                 p.sleep = false;
             }
             System.out.println(p.name + "はどうする？");
-             String p_Instructions = new java.util.Scanner(System.in).nextLine();
+            p_Instructions = new java.util.Scanner(System.in).nextLine();
+        }else{
+            System.out.println(p.name + "は寝ている・・・");
+        }
+        
+        if(a == 8||a == 12||a == 11){
+            e.de();
+        }
+        if(p_sleepturn == 5 || p_sleepturn == 0){
+            p_Instructions(p_Instructions);
+        }
+	    
+        if(a == 1||a == 2||a == 3||a == 7||a == 9||a == 10){
+            e.attack(p);
+        }else if(a == 4){
+            e.sit();
+        }else if(a == 5){
+            e.down();
+        }else if(a == 6){
+            e.sleep();
+        
+        
+        }
+		 turn++;  
+    }
+	}
+
+	
+    public static void p_Instructions(String p_Instructions){
+        
             if(p_Instructions.equals("st")){
                 last();
             }else if(p_Instructions.equals("a")){
-            p.attack(e);
+                p.attack(e);
             }else if(p_Instructions.equals("si")){
                 p.sit();
             }else if(p_Instructions.equals("do")){
@@ -137,12 +161,13 @@ public class Main {
                 p.de();
             }else{
                 System.out.println("条件に合いませんでした。もう一度入力してください");
-                p_Instructions();
+                
+                System.out.println(p.name + "はどうする？");
+                p_Instructions = new java.util.Scanner(System.in).nextLine();
+                p_Instructions(p_Instructions);
                     
 		    }
-        }else{
-            System.out.println(p.name + "は寝ている・・・");
-        }
+        
     }
 	public static void last(){
 	    System.out.println("あなたの結果は・・・");
