@@ -5,14 +5,18 @@ public class Main {
         
 	}
     public static void sub(int a){
+
         for(int i = 2;i <= a;i++){
             if(a % i == 0 || !(a == i)){
+                System.out.print(a);
+                System.out.print("\n");
                 a++;
-                sub(a);
-            }else if(i == a){
+                //sub(a);
+            } if(i == a){
+                System.out.print("second");
                 System.out.println(a);
                 a++;
-                sub(a);
+                //sub(a);
             }
         }
     }
