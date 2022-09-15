@@ -1,23 +1,23 @@
 public class Main {
 	public static void main(String[] args) {
-		int a = 2;
-        sub(a);
+		
+        System.out.println(2);
+        sub(2);
         
 	}
-    public static void sub(int a){
+    public static void sub(long a){
 
-        for(int i = 2;i <= a;i++){
-            if(a % i == 0 || !(a == i)){
-                System.out.print(a);
-                System.out.print("\n");
-                a++;
-                //sub(a);
-            } if(i == a){
-                System.out.print("second");
+        for(long i = 1;i <= a;i++){
+            if(a == i){
                 System.out.println(a);
                 a++;
-                //sub(a);
+                i = 1;
+            }else if(a % i == 0){
+                a++;
+                i = 1;
+            }else if(!(a % i == 0)){
             }
+            
         }
     }
 }
